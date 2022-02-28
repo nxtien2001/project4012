@@ -17,7 +17,7 @@ class WishlistController extends Controller
             ]);
             return redirect()->back()->with('success', 'Thêm vào danh sách yêu thích thành công!');
         } else {
-            return redirect()->route('auth.getLoginForm')->with('message', 'Bạn chưa đăng nhập');
+            return redirect()->route('login')->with('message', 'Bạn chưa đăng nhập');
         }
     }
     public function wishPage()

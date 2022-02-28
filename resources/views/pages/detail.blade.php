@@ -191,10 +191,25 @@
                                     <p>{{$c->content}}</p>
                                 </div>
                                 <div class="col-2">
-                                    <p>{{$c->created_at}}</p>
-                                    <a href="">Trả lời</a>
+                                    <p>{{$c->created_at->format('d/m/Y')}}</p>
+                                    <a href="#">Trả lời</a>
                                 </div>
+                                <!-- bình luận con -->
+                                <div class="col-12">
 
+                                    <div class="col-2">
+                                        <img src="{{asset('frontend\img\avatar.png')}}" height="70px" alt="">
+                                    </div>
+                                    <div class="col-8">
+                                        <p> <b>{{$c->name}}</b> </p>
+                                        <p>{{$c->content}}</p>
+                                    </div>
+                                    <div class="col-2">
+                                        <p>{{$c->created_at->format('d/m/Y')}}</p>
+                                        <a href="#">Trả lời</a>
+                                    </div>
+
+                                </div>
                             </div>
                             @endforeach
                         </div><br>
@@ -285,7 +300,7 @@
             <div class="col-lg-3">
                 <div class="single_product">
                     <div class="product_thumb">
-                        <a href=""><img src="{{asset('upload/product/' . $lq->image)}}" width="250px" height="250px" alt=""></a>
+                        <a href="{{url('/chi-tiet-san-pham/'. $lq->slug . '/' . $lq->id . '.html' )}}"><img src="{{asset('upload/product/' . $lq->image)}}" width="250px" height="250px" alt=""></a>
                         <div class="img_icone">
                             <img src="assets\img\cart\span-new.png" alt="">
                         </div>
@@ -316,4 +331,33 @@
         </div>
     </div>
 </div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Đăng nhập ngay</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post">
+                    <div class="mb-3">
+                        <label autocomplete="off" for="exampleInputEmail1" class="form-label">Email</label>
+                        <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
+                        <input type="password" class="form-control" id="">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Đăng nhập</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div><br><br>
 @endsection

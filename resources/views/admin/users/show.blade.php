@@ -14,7 +14,7 @@
 <div class="row">
     <div class="col-12">
         <div class="col-6">
-            <b>Họ tên:</b> <label for=""> {{$user->name}}</label><br>
+            <b>Khách hàng:</b> <label for=""> {{$user->name}}</label><br>
             <b>Email:</b> <label for=""> {{$user->email}}</label>
         </div>
         <div class="col-6">
@@ -26,7 +26,6 @@
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Tên</th>
             <th scope="col">Sdt</th>
             <th scope="col">Địa chỉ</th>
             <th>Giá</th>
@@ -38,7 +37,6 @@
         @foreach($user->invoices as $key=>$item)
         <tr>
             <th scope="row">{{$key+1}}</th>
-            <th>{{$item->name}}</th>
             <th>{{$item->phone}}</th>
             <th>{{$item->address}}</th>
             <th>{{$item->total_price}}</th>

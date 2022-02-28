@@ -34,9 +34,7 @@ class LoginController extends Controller
             session()->flash('error', 'Sai email hoặc mật khẩu');
             return back();
         }
-
-        $user = Auth::user();
-
+        // $user = Auth::user();
         return redirect()->route('admin.index');
     }
 

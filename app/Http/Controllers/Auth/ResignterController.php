@@ -27,7 +27,7 @@ class ResignterController extends Controller
         ]);
         $user->save();
         if ($user->id) {
-            return redirect()->route('auth.getLoginForm')->with('success', 'Đăng kí tài khoản thành công! Vui lòng đăng nhập');
+            return redirect()->route('login')->with('success', 'Đăng kí tài khoản thành công! Vui lòng đăng nhập');
         }
         return redirect()->back();
     }

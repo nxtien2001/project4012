@@ -19,10 +19,4 @@ class Invoice extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
-    //Acesstor
-    // public function getTotalPriceAttribute()
-    // {
-    //     $newValue = $this->attributes['total_price'] . "VND";
-    //     return $newValue;
-    // }
 }

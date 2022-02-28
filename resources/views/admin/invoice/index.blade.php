@@ -32,17 +32,17 @@
             <td>{{$item->address}}</td>
             <td>
                 @if($item->status == config('common.invoice.status.cho_duyet'))
-                <b style="color: red;">Chờ duyệt</b>
+                <a href="{{route('admin.invoices.choduyet' , $item->id)}}">Chờ duyệt</b></a>
                 @elseif($item->status == config('common.invoice.status.dang_xu_ly'))
-                <b style="color: red;">Đang xử lý</b>
+                <a href="{{route('admin.invoices.dangxuly' , $item->id)}}">Đang xử lý</b></a>
                 @elseif($item->status == config('common.invoice.status.dang_giao_hang'))
-                <b style="color: red;">Đang giao hàng</b>
+                <a href="{{route('admin.invoices.danggiaohang' , $item->id)}}">Đang giao hàng</b></a>
                 @elseif($item->status == config('common.invoice.status.da_giao_hang'))
-                <b style="color: red;">Đã giao hàng</b>
+                <a href="{{route('admin.invoices.dagiaohang' , $item->id)}}">Đã giao hàng</b></a>
                 @elseif($item->status == config('common.invoice.status.da_huy'))
-                <b style="color: red;">Đã hủy</b>
+                <a href="{{route('admin.invoices.dahuy' , $item->id)}}">Đã hủy</b></a>
                 @else($item->status == config('common.invoice.status.chuyen_hoan'))
-                <b style="color: red;">Hoàn trả</b>
+                <a href="{{route('admin.invoices.chuyenhoan' , $item->id)}}">Hoàn trả</b></a>
                 @endif
             </td>
             <td>

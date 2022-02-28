@@ -181,7 +181,7 @@
         <div class="col-lg-4 col-md-6">
             <div class="single_blog">
                 <div class="blog_thumb">
-                    <a href=""><img src="{{asset('upload/product/' . $p->image)}}" width="300px" height="250px" alt=""></a>
+                    <a href="{{route('post',$p->slug)}}"><img src="{{asset('upload/product/' . $p->image)}}" width="300px" height="250px" alt=""></a>
                 </div>
                 <div class="blog_content">
                     <div class="blog_post">

@@ -17,7 +17,6 @@
             <label for="">Danh mục cha</label>
             <select class="form-control" name="parent_id">
                 <option value="0">Chọn danh mục cha</option>
-
                 @foreach($data as $cate)
                 @if($cate->parent_id == 0 )
                 <option value="{{$cate->id}}" {{$cate->id == $categories->parent_id ? 'selected' : ''}}>{{$cate->name}}</option>

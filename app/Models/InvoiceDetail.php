@@ -19,4 +19,8 @@ class InvoiceDetail extends Model
     {
         return $this->belongsTo(Product::class, 'product_id', 'id');
     }
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'product_id', 'id');
+    }
 }

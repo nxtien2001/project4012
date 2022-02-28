@@ -28,7 +28,7 @@
                         $qty = App\Models\Wishlist::where('user_id',Auth::id())->get();
                         $wish = App\Models\Wishlist::where('user_id',Auth::id())->get();
                         @endphp
-                        <li><a href="{{route('auth.login')}}" title="Login">Đăng nhập</a></li>
+                        <li><a href="{{route('login')}}" title="Login">Đăng nhập</a></li>
                         <li><a href="{{route('getResign')}}" title="Login">Đăng kí</a></li>
                         <li><a href="{{route('ShowCart')}}" title="My cart">Giỏ hàng ( {{count($qty)}} )</a></li>
                         @auth
@@ -57,7 +57,7 @@
                 <div class="header_right_info">
                     <div class="search_bar">
                         <form action="{{URL::to('search/')}}" method="get">
-                            <input name="key" placeholder="Search..." type="text">
+                            <input name="key" autocomplete="off" placeholder="Search..." type="text">
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div>
@@ -120,7 +120,7 @@
                                 </li>
                                 </li>
                                 @foreach($categories as $cate)
-                                <li><a href="">{{$cate->name}}</a>
+                                <li><a href="#">{{$cate->name}}</a>
                                     <div class="mega_menu jewelry">
                                         <div class="mega_items jewelry">
                                             @include('frontend.menuChild',['cate'=>$cate])

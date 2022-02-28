@@ -25,7 +25,7 @@
                 <h3>
                     <i class="fa fa-file-o" aria-hidden="true"></i>
                     Bạn chưa đăng nhập?
-                    <a class="Returning" href="{{route('auth.getLoginForm')}}" data-toggle="collapse" data-target="#checkout_login" aria-expanded="true">Click vào đây để đăng nhập</a>
+                    <a class="Returning" href="{{route('login')}}" data-toggle="collapse" data-target="#checkout_login" aria-expanded="true">Click vào đây để đăng nhập</a>
                 </h3>
             </div>
             <div class="user-actions mb-20">

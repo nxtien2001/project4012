@@ -12,7 +12,7 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $post = Post::where('status', 1)->orderBy('id', 'DESC')->get();
+        $post = Post::where('status', 1)->orderBy('id', 'DESC')->take(3)->get();
         $newProducts = Product::limit(6)->orderBy('id', 'DESC')->get(); //sp mới
         $topProducts = Product::where('status', 1)->limit(6)->orderBy('id', 'ASC')->get(); //nổi bật
         $sale_products = Product::where('sale_price', '>', 0)->limit(6)->orderBy('id', 'DESC')->get(); //giảm giá
@@ -46,13 +46,7 @@ class HomeController extends Controller
     {
         $category = Category::where('slug', $slug)->first();
         $product = Product::where('category_id', $category->id)->paginate(8);
-        // $category->load('products');
         $category->load('childrent');
-        // $category = Category::where('id', $id)->first();
-        // $product = Product::find($slug);
-        // $product = Product::find($slug);
-        // $product = Product::where('slug', $slug)->first();
-        // $product->load('attributes');
         return view('pages.category', compact('category', 'product'));
     }
     public function detail($slug, $id)
@@ -78,5 +72,13 @@ class HomeController extends Controller
     public function cart()
     {
         return view('pages.order');
+    }
+    public function post($slug)
+    {
+        $postdetail = Post::where('slug', $slug)->first();
+        $postdetail->update([
+            'view' => $postdetail->view + 1
+        ]);
+        return view('pages.blog-details', compact('postdetail'));
     }
 }

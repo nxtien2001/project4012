@@ -35,10 +35,10 @@ Route::get('search', [HomeController::class, 'getSearch'])->name('getSearch');
 Route::get('/danh-muc/{slug}/{id}.html', [HomeController::class, 'category'])->name('category');
 Route::get('/chi-tiet-san-pham/{slug}/{id}.html', [HomeController::class, 'detail'])->name('productDetail');
 Route::post('/chi-tiet-san-pham/{slug}/{id}.html', [HomeController::class, 'postComment']);
-
+Route::get('/chi-tiet-bai-viet/{slug}.html', [HomeController::class, 'post'])->name('post');
 
 //LOGIN
-Route::get('login', [LoginController::class, 'getLoginForm'])->name('auth.getLoginForm');
+Route::get('login', [LoginController::class, 'getLoginForm'])->name('login');
 Route::post('login',  [LoginController::class, 'login'])->name('auth.login');
 Route::get('logout',  [LoginController::class, 'logout'])->name('auth.logout');
 
@@ -78,8 +78,8 @@ Route::group([
     ], function () {
         //UER
         Route::group([
-            'prefix' => 'users', //tiền tố đường dẫn
-            'as' => 'users.', //name
+            'prefix' => 'users',
+            'as' => 'users.',
         ], function () {
             Route::get('/', [UserController::class, 'index'])->name('index');
             Route::get('/create', [UserController::class, 'create'])->name('create-user');
@@ -129,8 +129,15 @@ Route::group([
             'middleware' => ['check_admin'],
         ], function () {
             Route::get('/', [InvoiceController::class, 'index'])->name('index');
+            Route::get('/export/{id}', [InvoiceController::class, 'exportPDF'])->name('export');
             Route::get('/{id}', [InvoiceController::class, 'show'])->name('show');
             Route::post('/delete/{id}', [InvoiceController::class, 'delete'])->name('delete');
+            Route::get('/cho-duyet/{invoice_id}', [InvoiceController::class, 'choduyet'])->name('choduyet');
+            Route::get('/dang-xu-ly/{invoice_id}', [InvoiceController::class, 'dangxuly'])->name('dangxuly');
+            Route::get('/dang-giao-hang/{invoice_id}', [InvoiceController::class, 'danggiaohang'])->name('danggiaohang');
+            Route::get('/da-giao-hang/{invoice_id}', [InvoiceController::class, 'dagiaohang'])->name('dagiaohang');
+            Route::get('/da-huy/{invoice_id}', [InvoiceController::class, 'dahuy'])->name('dahuy');
+            Route::get('/chuyen-hoan/{invoice_id}', [InvoiceController::class, 'chuyenhoan'])->name('chuyenhoan');
         });
 
         //Thuộc tính

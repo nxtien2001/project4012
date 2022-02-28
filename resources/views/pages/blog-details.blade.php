@@ -19,7 +19,6 @@
 <!--blog area start-->
 <div class="main_blog_area blog_details">
     <div class="row">
-        @foreach($posts as $p)
         <div class="col-lg-9 col-md-12">
             <div class="blog_details_left">
                 <div class="blog_gallery">
@@ -27,17 +26,18 @@
                         <!-- <span>
                             <a href="#">WordPress</a>
                         </span> -->
-                        <h2><a href="#">{{$p->name}}</a></h2>
+                        <h2><a href="#">{{$postdetail->name}}</a></h2>
+                        <p>Có: {{$postdetail->view}} lượt xem</p>
                         <div class="blog__post">
                             <ul>
                                 <!-- <li class="post_author">Posts by : admin</li> -->
-                                <li class="post_date"> {{$p->created_at}} </li>
+                                <li class="post_date"> {{ $postdetail->created_at->format('d/m/Y')}} </li>
                             </ul>
                         </div>
                     </div>
                     <div class="blog_active owl-carousel">
                         <div class="blog_thumb blog__hover">
-                            <a href=""><img src="{{asset('upload/product/' . $p->image)}}" alt=""></a>
+                            <a href=""><img src="{{asset('upload/product/' . $postdetail->image)}}" alt=""></a>
                         </div>
                         <!-- <div class="blog_thumb">
                             <a href="blog-details.html"><img src="assets\img\blog\blog7.jpg" alt=""></a>
@@ -51,9 +51,9 @@
                     </div>
 
                     <div class="blog_entry_content">
-                        <p class="blockquote">{{$p->description}}</p>
+                        <p class="blockquote">{{$postdetail->description}}</p>
 
-                        <p>{!!$p->content!!}</p>
+                        <p>{!!$postdetail->content!!}</p>
                     </div>
                     <!-- <div class="blog_entry_meta">
                         <ul>
@@ -114,7 +114,6 @@
 
             </div>
         </div>
-        @endforeach
         <div class="col-lg-3 col-md-8 offset-md-2 offset-lg-0">
             <div class="blog_details_right">
                 <div class="blog_widget search_widget mb-30">

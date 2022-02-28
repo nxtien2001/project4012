@@ -18,7 +18,7 @@ class AuthenticateMiddleware
     public function handle(Request $request, Closure $next)
     {
         if (Auth::check() == false) {
-            return redirect()->route('auth.getLoginForm');
+            return redirect()->route('login');
         }
         return $next($request);
     }

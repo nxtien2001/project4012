@@ -25,8 +25,8 @@ class CartController extends Controller
         if (isset($cart[$id])) {
             $cart[$id]['quantity'] = $cart[$id]['quantity'] + 1;
         } else {
-            $cart[] = [
-                'id' => $products->id,
+            $cart[$id] = [
+                // 'id' => $products->id,
                 'name' => $products->name,
                 'price' => $products->sale_price ? $products->sale_price : $products->price,
                 'quantity' => 1,
@@ -95,7 +95,7 @@ class CartController extends Controller
             Session::forget('cart');
             return redirect()->route('thanhcong');
         } else {
-            return redirect()->route('auth.getLoginForm')->with('message', 'Bạn chưa đăng nhập');
+            return redirect()->route('login')->with('message', 'Bạn chưa đăng nhập');
         }
     }
     public function thanhcong()

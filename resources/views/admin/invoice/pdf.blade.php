@@ -1,18 +1,14 @@
 @extends('layout')
-
 @section('title','Thông tin đơn hàng')
-
 @section('content')
-
 <br><br>
-@if($invoice != null)
 <div class="row">
     <div class="col-md-6">
-        <h3>Chi tiết đơn hàng</h3>
+        <h3>Thông tin chi tiết đơn hàng</h3>
     </div>
 </div>
 <br>
-<table class="table table-success table-striped">
+<table>
     <thead>
         <tr>
             <th scope="col">#</th>
@@ -55,13 +51,4 @@
         </tr>
     </tbody>
 </table>
-<a href="{{route('admin.invoices.index')}}">
-    <button type="submit" class="btn btn-primary">Quay lại</button>
-</a>
-<a href="{{URL('/admin/invoices/export/'. $invoice->id)}}" class="btn btn-danger">
-    IN HÓA ĐƠN
-</a>
-@else
-<h4>Người dùng này chưa có đơn hàng nào. <a href="{{route('admin.invoices.index')}}">Quay lại</a></h4>
-@endif
 @endsection

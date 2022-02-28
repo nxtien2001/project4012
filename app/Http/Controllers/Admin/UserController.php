@@ -64,7 +64,9 @@ class UserController extends Controller
     }
     public function delete($id)
     {
-        $user = User::find($id)->delete();
+        $user = User::find($id);
+        $user->invoices()->delete($id);
+        $user->delete($id);
         return redirect()->route('admin.users.index', compact('user'));
     }
 }
